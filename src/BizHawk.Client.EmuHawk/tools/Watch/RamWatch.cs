@@ -12,6 +12,7 @@ using BizHawk.Emulation.Common;
 using BizHawk.Client.Common;
 using BizHawk.Client.EmuHawk.Properties;
 using BizHawk.Client.EmuHawk.ToolExtensions;
+using BizHawk.Common;
 
 namespace BizHawk.Client.EmuHawk
 {

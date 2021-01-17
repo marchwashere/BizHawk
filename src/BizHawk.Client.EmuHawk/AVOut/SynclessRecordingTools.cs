@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 using BizHawk.Bizware.BizwareGL;
 using BizHawk.Client.Common;
+using BizHawk.Common;
 using BizHawk.Emulation.Common;
 
 namespace BizHawk.Client.EmuHawk
@@ -20,8 +21,6 @@ namespace BizHawk.Client.EmuHawk
 		private string _mFramesDirectory;
 
 		public IDialogController DialogController { get; }
-
-		public IWin32Window SelfAsHandle => this;
 
 		public SynclessRecordingTools(Config config, IGameInfo game, IDialogController dialogController)
 		{

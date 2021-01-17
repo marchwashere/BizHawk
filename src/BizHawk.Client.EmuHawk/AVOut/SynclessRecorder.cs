@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using BizHawk.Emulation.Common;
 using BizHawk.Bizware.BizwareGL;
 using BizHawk.Client.Common;
+using BizHawk.Common;
 
 namespace BizHawk.Client.EmuHawk
 {

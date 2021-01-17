@@ -211,13 +211,13 @@ namespace BizHawk.Client.EmuHawk
 		{
 			if (new FFmpegService().QueryServiceAvailable())
 			{
-				return FFmpegWriterForm.DoFFmpegWriterDlg(parent.SelfAsHandle, config);
+				return FFmpegWriterForm.DoFFmpegWriterDlg(parent.AsWinFormsHandle(), config);
 			}
 
 			FFmpegDownloaderForm.Run(parent);
 			if (new FFmpegService().QueryServiceAvailable())
 			{
-				return FFmpegWriterForm.DoFFmpegWriterDlg(parent.SelfAsHandle, config);
+				return FFmpegWriterForm.DoFFmpegWriterDlg(parent.AsWinFormsHandle(), config);
 			}
 
 			return null;

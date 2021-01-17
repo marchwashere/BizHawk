@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 
 using BizHawk.Client.Common;
+using BizHawk.Common;
 using BizHawk.Emulation.Common;
 
 namespace BizHawk.Client.EmuHawk
@@ -53,15 +54,16 @@ namespace BizHawk.Client.EmuHawk
 		/// <param name="owner">parent window</param>
 		/// <param name="emulator">The current emulator</param>
 		/// <returns>user choice, or null on Cancel\Close\invalid</returns>
-		public static IVideoWriter DoVideoWriterChooserDlg(
+		public static IVideoWriter DoVideoWriterChooserDlg<T>(
 			IEnumerable<VideoWriterInfo> list,
-			IMainFormForTools owner,
+			T owner,
 			IEmulator emulator,
 			Config config,
 			out int resizeW,
 			out int resizeH,
 			out bool pad,
 			ref bool audioSync)
+				where T : IMainFormForTools, IDialogParent
 		{
 			var dlg = new VideoWriterChooserForm(owner, emulator, config)
 			{

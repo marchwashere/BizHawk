@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 
 using BizHawk.Client.Common;
+using BizHawk.Common;
 using BizHawk.Common.IOExtensions;
 using BizHawk.Emulation.Common;
 

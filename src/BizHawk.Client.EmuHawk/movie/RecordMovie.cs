@@ -5,6 +5,7 @@ using System.Linq;
 
 using BizHawk.Emulation.Common;
 using BizHawk.Client.Common;
+using BizHawk.Common;
 
 namespace BizHawk.Client.EmuHawk
 {
@@ -19,8 +20,6 @@ namespace BizHawk.Client.EmuHawk
 		private readonly FirmwareManager _firmwareManager;
 
 		public IDialogController DialogController => _mainForm;
-
-		public IWin32Window SelfAsHandle => this;
 
 		public RecordMovie(
 			IMainFormForTools mainForm,

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 using BizHawk.Client.Common;
+using BizHawk.Common;
 using BizHawk.Emulation.Common;
 
 namespace BizHawk.Client.EmuHawk
@@ -24,8 +25,6 @@ namespace BizHawk.Client.EmuHawk
 		public IGameInfo Game { protected get; set; }
 
 		public IDialogController DialogController => MainForm;
-
-		public virtual IWin32Window SelfAsHandle => this;
 
 		public virtual bool AskSaveChanges() => true;
 

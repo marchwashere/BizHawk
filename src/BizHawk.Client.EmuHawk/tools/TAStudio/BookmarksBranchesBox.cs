@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using BizHawk.Client.Common;
 using BizHawk.Emulation.Common;
 using BizHawk.Client.EmuHawk.Properties;
+using BizHawk.Common;
 
 namespace BizHawk.Client.EmuHawk
 {
@@ -46,8 +47,6 @@ namespace BizHawk.Client.EmuHawk
 		}
 
 		public IDialogController DialogController => Tastudio.MainForm;
-
-		public IWin32Window SelfAsHandle => this;
 
 		public BookmarksBranchesBox()
 		{

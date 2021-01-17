@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 using BizHawk.Client.Common;
 using BizHawk.Client.EmuHawk.Properties;
+using BizHawk.Common;
 
 namespace BizHawk.Client.EmuHawk
 {
@@ -16,8 +17,6 @@ namespace BizHawk.Client.EmuHawk
 		public TasMovieMarkerList Markers => Tastudio.CurrentTasMovie.Markers;
 
 		public IDialogController DialogController => Tastudio.MainForm;
-
-		public IWin32Window SelfAsHandle => this;
 
 		public MarkerControl()
 		{

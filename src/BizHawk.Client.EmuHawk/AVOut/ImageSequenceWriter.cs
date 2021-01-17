@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using BizHawk.Bizware.BizwareGL;
 using BizHawk.Client.Common;
+using BizHawk.Common;
 using BizHawk.Emulation.Common;
 
 namespace BizHawk.Client.EmuHawk

@@ -278,7 +278,7 @@ namespace BizHawk.Client.EmuHawk
 			File.Delete(tempfile);
 			tempfile = Path.ChangeExtension(tempfile, "avi");
 			temp.OpenFile(tempfile, tempParams, null);
-			var ret = temp.AcquireVideoCodecToken(parent.SelfAsHandle.Handle, _currVideoCodecToken);
+			var ret = temp.AcquireVideoCodecToken(parent.AsWinFormsHandle().Handle, _currVideoCodecToken);
 			CodecToken token = (CodecToken)ret;
 			config.AviCodecToken = token?.Serialize();
 			temp.CloseFile();

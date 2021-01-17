@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using BizHawk.Client.Common;
 using BizHawk.Client.EmuHawk.Properties;
+using BizHawk.Common;
 using BizHawk.Common.NumberExtensions;
 using BizHawk.Emulation.Common;
 
@@ -21,8 +22,6 @@ namespace BizHawk.Client.EmuHawk
 		private readonly BreakpointList _breakpoints = new BreakpointList();
 
 		public IDialogController DialogController => MainForm;
-
-		public IWin32Window SelfAsHandle => this;
 
 		public BreakpointControl()
 		{
