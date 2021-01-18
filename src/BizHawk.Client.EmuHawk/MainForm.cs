@@ -302,8 +302,8 @@ namespace BizHawk.Client.EmuHawk
 			movieSession = MovieSession = new MovieSession(
 				Config.Movies,
 				Config.PathEntries.MovieBackupsAbsolutePath(),
+				this,
 				AddOnScreenMessage,
-				ShowMessageCoreComm,
 				PauseEmulator,
 				SetMainformMovieInfo);
 
@@ -3504,11 +3504,6 @@ namespace BizHawk.Client.EmuHawk
 			var pathEntry = Config.PathEntries.SaveStateAbsolutePath(Game.System);
 
 			return Path.Combine(pathEntry, name);
-		}
-
-		private void ShowMessageCoreComm(string message)
-		{
-			this.ModalMessageBox(message, "Warning", EMsgBoxIcon.Warning);
 		}
 
 		private void ShowLoadError(object sender, RomLoader.RomErrorArgs e)
