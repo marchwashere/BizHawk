@@ -158,19 +158,17 @@ namespace BizHawk.Client.EmuHawk
 			// its.. weird. don't ask.
 		}
 
-		public CoreComm CreateCoreComm()
-		{
-			var cfp = new CoreFileProvider(
-				ShowMessageCoreComm,
+		public CoreComm CreateCoreComm() => new(
+			coreFileProvider: new CoreFileProvider(
+				this,
 				FirmwareManager,
 				Config.PathEntries,
-				Config.FirmwareUserSpecifications);
-			var prefs = CoreComm.CorePreferencesFlags.None;
-			if (Config.SkipWaterboxIntegrityChecks)
-				prefs = CoreComm.CorePreferencesFlags.WaterboxMemoryConsistencyCheck;
-
-			return new CoreComm(ShowMessageCoreComm, AddOnScreenMessage, cfp, prefs);
-		}
+				Config.FirmwareUserSpecifications),
+			prefs: Config.SkipWaterboxIntegrityChecks
+				? CoreComm.CorePreferencesFlags.WaterboxMemoryConsistencyCheck
+				: CoreComm.CorePreferencesFlags.None,
+			dialogParent: this,
+			osdMessageCallback: AddOnScreenMessage);
 
 		private void SetImages()
 		{

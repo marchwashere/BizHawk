@@ -1,5 +1,7 @@
 ﻿using System;
 
+using BizHawk.Common;
+
 namespace BizHawk.Emulation.Common
 {
 	/// <summary>
@@ -10,30 +12,29 @@ namespace BizHawk.Emulation.Common
 	/// </summary>
 	public class CoreComm
 	{
+		private readonly IDialogParent _dialogParent;
+
+		private readonly Action<string> _osdMessageCallback;
+
 		public CoreComm(
-			Action<string> showMessage,
-			Action<string> notifyMessage,
 			ICoreFileProvider coreFileProvider,
-			CorePreferencesFlags prefs
-			)
+			CorePreferencesFlags prefs,
+			IDialogParent dialogParent,
+			Action<string> osdMessageCallback)
 		{
-			ShowMessage = showMessage;
-			Notify = notifyMessage;
 			CoreFileProvider = coreFileProvider;
 			CorePreferences = prefs;
+			_dialogParent = dialogParent;
+			_osdMessageCallback = osdMessageCallback;
 		}
 
 		public ICoreFileProvider CoreFileProvider { get; }
 
-		/// <summary>
-		/// Gets a message to show. reasonably annoying (dialog box), shouldn't be used most of the time
-		/// </summary>
-		public Action<string> ShowMessage { get; }
+		/// <summary>Displays a message in a modal dialog. Reasonably annoying, so shouldn't be used most of the time.</summary>
+		public void ShowMessage(string message) => _dialogParent.ModalMessageBox(message, "Warning", EMsgBoxIcon.Warning);
 
-		/// <summary>
-		/// Gets a message to show. less annoying (OSD message). Should be used for ignorable helpful messages
-		/// </summary>
-		public Action<string> Notify { get; }
+		/// <summary>Displays a message on the OSD. Less annoying, so can be used for ignorable helpful messages.</summary>
+		public void Notify(string message) => _osdMessageCallback(message);
 
 		[Flags]
 		public enum CorePreferencesFlags
